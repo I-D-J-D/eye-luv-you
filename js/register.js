@@ -118,3 +118,55 @@ function setupName() {
 function getRandomNumber() {
   return Math.floor(Math.random() * 10000) + 1;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const phoneInput = document.getElementById("phone-input");
+  const militaryIdInput = document.getElementById("militaryIdInput");
+  const passwordInput = document.getElementById("password");
+  const passwordCheckInput = document.getElementById("password-check");
+  const nicknameInput = document.getElementById("nickname");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const passwordErrorMessage = document.getElementById("pw-error-message");
+  const passwordCheckErrorMessage = document.getElementById("pwc-error-message");
+
+  function checkInputs() {
+      const allFieldsFilled =
+          phoneInput.value.trim() !== "" &&
+          militaryIdInput.value.trim() !== "" &&
+          passwordInput.value.trim() !== "" &&
+          passwordCheckInput.value.trim() !== "" &&
+          nicknameInput.value.trim() !== "";
+
+      const passwordsMatch = passwordInput.value === passwordCheckInput.value;
+
+      if (allFieldsFilled && passwordsMatch) {
+          nextBtn.disabled = false;
+          nextBtn.classList.remove("disabled");
+          nextBtn.classList.add("abled");
+          passwordErrorMessage.classList.add("hidden");
+          passwordCheckErrorMessage.classList.add("hidden");
+      } else {
+          nextBtn.disabled = true;
+          nextBtn.classList.remove("abled");
+          nextBtn.classList.add("disabled");
+
+          if (!passwordsMatch) {
+              passwordCheckErrorMessage.textContent = "비밀번호가 일치하지 않습니다.";
+              passwordCheckErrorMessage.classList.remove("hidden");
+          } else {
+              passwordCheckErrorMessage.classList.add("hidden");
+          }
+      }
+  }
+
+  // 각 입력 필드에 이벤트 리스너를 추가합니다.
+  phoneInput.addEventListener("input", checkInputs);
+  militaryIdInput.addEventListener("input", checkInputs);
+  passwordInput.addEventListener("input", checkInputs);
+  passwordCheckInput.addEventListener("input", checkInputs);
+  nicknameInput.addEventListener("input", checkInputs);
+
+  // 초기 상태에서 버튼을 비활성화합니다.
+  checkInputs();
+});

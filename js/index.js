@@ -17,10 +17,10 @@ document.getElementById("login-button").addEventListener("click", function () {
     militaryIdInput.style.display = "#E53E3E";
   } else {
     if (militaryId !== "올바른 군번" || password !== "올바른 비밀번호") {
-      errorMessage.textContent = "군번 또는 비밀번호가 잘못되었습니다.";
-      errorMessage.style.display = "#E53E3E";
+      idErrorMessage.textContent = "군번 또는 비밀번호가 잘못되었습니다.";
+      idErrorMessage.style.display = "#E53E3E";
     } else {
-      errorMessage.style.display = "none";
+      idErrorMessage.style.display = "none";
       window.location.href = "main.html";
     }
   }

@@ -31,53 +31,26 @@
       </a>
     </div>
 
-    <!-- <div class="mt-8 mx-4 text-[18px] font-medium flex flex-col">
-      <p>본인확인을 위해</p>
-      <p>인증을 진행해 주세요.</p>
-    </div> -->
-
     <div class="mt-8 mx-4 gap-1 flex flex-col">
       <p class="text-[14px] font-medium">휴대폰번호</p>
       <input
-        id="phoneInput"
+        id="phone-input"
         type="text"
         placeholder="숫자만 입력해 주세요"
-        class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+        class="signup-input border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
       />
-      <span id="error-message" class="error text-[#E53E3E] text-[12px]"></span>
+      <span id="error-message" class="text-[#E53E3E] text-[12px]"></span>
     </div>
-
-    <div id="additionalContent"></div>
-
-    <!-- 나중에처리 -->
-    <!-- <div class="flex place-items-baseline justify-center mt-auto mb-2">
-      <button
-        id="identityBtn"
-        type="button"
-        class="w-full mx-4 rounded-md text-[#FFFFFF] text-[15px] p-4 disabled mt-3"
-      >
-        본인인증
-      </button>
-    </div> -->
-
-    <!-- <div class="mt-8 mx-4 text-[18px] font-medium flex flex-col">
-      <p>사용자 정보를</p>
-      <p>입력해 주세요.</p>
-    </div> -->
 
     <div>
       <div class="mt-8 mx-4 gap-1 flex flex-col">
         <p class="text-[14px] font-medium">군번</p>
         <input
-          id="phoneInput"
+          id="militaryIdInput"
           type="text"
           placeholder="군번을 입력해 주세요"
-          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+          class="signup-input border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
         />
-        <span
-          id="id-error-message"
-          class="error text-[#E53E3E] text-[12px]"
-        ></span>
       </div>
 
       <div class="mt-8 mx-4 gap-1 flex flex-col">
@@ -86,25 +59,25 @@
           id="password"
           type="password"
           placeholder="영문, 숫자, 특수문자 조합 (8자 이상)"
-          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+          class="signup-input border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
         />
         <span
-          id="error-message"
-          class="error text-[#E53E3E] text-[12px]"
+          id="pw-error-message"
+          class="text-[#E53E3E] text-[12px]"
         ></span>
       </div>
 
       <div class="mt-8 mx-4 gap-1 flex flex-col">
-        <p class="text-[14px] font-medium">비밀번호 확인</p>
+        <p class="signup-input text-[14px] font-medium">비밀번호 확인</p>
         <input
-          id="password"
+          id="password-check"
           type="password"
           placeholder="비밀번호 재입력"
-          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+          class="signup-input border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
         />
         <span
-          id="error-message"
-          class="error text-[#E53E3E] text-[12px]"
+          id="pwc-error-message"
+          class="text-[#E53E3E] text-[12px]"
         ></span>
       </div>
 
@@ -114,12 +87,8 @@
           id="nickname"
           type="nickname"
           placeholder="닉네임"
-          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+          class="signup-input border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
         />
-        <span
-          id="error-message"
-          class="error text-[#E53E3E] text-[12px]"
-        ></span>
         <a
           class="text-[14px] text-[#666666] underline flex self-end"
           onclick="setupName()"
@@ -132,7 +101,7 @@
       <button
         id="nextBtn"
         type="submit"
-        class="w-full mx-4 rounded-md text-[#FFFFFF] bg-[#dc5788] text-[15px] p-4 disabled"
+        class="w-full mx-4 rounded-md text-[#FFFFFF] text-[15px] p-4 disabled"
       >
         다음
       </button>
