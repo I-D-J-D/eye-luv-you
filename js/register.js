@@ -119,7 +119,7 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 10000) + 1;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   const phoneInput = document.getElementById("phone-input");
   const militaryIdInput = document.getElementById("militaryIdInput");
   const passwordInput = document.getElementById("password");
@@ -128,36 +128,37 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.getElementById("nextBtn");
 
   const passwordErrorMessage = document.getElementById("pw-error-message");
-  const passwordCheckErrorMessage = document.getElementById("pwc-error-message");
+  const passwordCheckErrorMessage =
+    document.getElementById("pwc-error-message");
 
   function checkInputs() {
-      const allFieldsFilled =
-          phoneInput.value.trim() !== "" &&
-          militaryIdInput.value.trim() !== "" &&
-          passwordInput.value.trim() !== "" &&
-          passwordCheckInput.value.trim() !== "" &&
-          nicknameInput.value.trim() !== "";
+    const allFieldsFilled =
+      phoneInput.value.trim() !== "" &&
+      militaryIdInput.value.trim() !== "" &&
+      passwordInput.value.trim() !== "" &&
+      passwordCheckInput.value.trim() !== "" &&
+      nicknameInput.value.trim() !== "";
 
-      const passwordsMatch = passwordInput.value === passwordCheckInput.value;
+    const passwordsMatch = passwordInput.value === passwordCheckInput.value;
 
-      if (allFieldsFilled && passwordsMatch) {
-          nextBtn.disabled = false;
-          nextBtn.classList.remove("disabled");
-          nextBtn.classList.add("abled");
-          passwordErrorMessage.classList.add("hidden");
-          passwordCheckErrorMessage.classList.add("hidden");
+    if (allFieldsFilled && passwordsMatch) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove("disabled");
+      nextBtn.classList.add("abled");
+      passwordErrorMessage.classList.add("hidden");
+      passwordCheckErrorMessage.classList.add("hidden");
+    } else {
+      nextBtn.disabled = true;
+      nextBtn.classList.remove("abled");
+      nextBtn.classList.add("disabled");
+
+      if (!passwordsMatch) {
+        passwordCheckErrorMessage.textContent = "비밀번호가 일치하지 않습니다.";
+        passwordCheckErrorMessage.classList.remove("hidden");
       } else {
-          nextBtn.disabled = true;
-          nextBtn.classList.remove("abled");
-          nextBtn.classList.add("disabled");
-
-          if (!passwordsMatch) {
-              passwordCheckErrorMessage.textContent = "비밀번호가 일치하지 않습니다.";
-              passwordCheckErrorMessage.classList.remove("hidden");
-          } else {
-              passwordCheckErrorMessage.classList.add("hidden");
-          }
+        passwordCheckErrorMessage.classList.add("hidden");
       }
+    }
   }
 
   // 각 입력 필드에 이벤트 리스너를 추가합니다.
@@ -169,4 +170,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 초기 상태에서 버튼을 비활성화합니다.
   checkInputs();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const nextBtn = document.getElementById("nextBtn");
+  const identityBtn = document.getElementById("identity-button");
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      const additionalContent = document.getElementById("additionalContent");
+      const nextButton = document.getElementById("nextBtn");
+      additionalContent.innerHTML = `
+      <div class="mt-8 mx-4 gap-1 flex flex-col border-b group border-[#E6E6E7]">
+        <p class="text-[14px] font-medium">인증 번호</p>
+        <div class="flex justify-between">
+          <input
+            type="text"
+            placeholder="인증번호를 입력해주세요."
+            class="py-2 placeholder:text-[#BABABA] placeholder:text-[16px] group-focus:border-[#DC5788] focus:outline-none"
+          />
+          <button id="retryBtn" type="button" class="w-[74px] h-[56px] rounded-lg text-[#FFFFFF] text-[14px] p-4 abled">
+            재전송
+          </button>
+        </div>
+        <span id="error-message" class="error text-[#E53E3E] text-[12px]"></span>
+      </div>
+      `;
+
+      const additionalIdentityButton = document.getElementById(
+        "additional-identity-button"
+      );
+    
+      additionalIdentityButton.classList.remove('hidden');
+      nextButton.classList.add('hidden');
+
+      additionalIdentityButton.innerHTML = `
+          <div class="w-full flex place-items-baseline justify-center mt-auto mb-2">
+            <button
+              id="identity-button"
+              type="submit"
+              class="w-full mx-4 p-4 rounded-md text-[#FFFFFF] text-[15px] abled"
+            >
+              회원가입
+            </button>
+          </div>
+      `;
+    });
+  }
+
 });
