@@ -13,30 +13,27 @@
       * {
         font-family: "Noto Sans KR", sans-serif;
       }
+
+      .disabled {
+        background-color: #e6e6e7;
+        cursor: not-allowed;
+      }
+
+      .abled {
+        background-color: #dc5788;
+        cursor: pointer;
+      }
+
+      .selected img {
+        content: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2FAMUstore00%2F%3Flocale%3Des_ES&psig=AOvVaw0NwDFSxGRIw6YvUBil_UvM&ust=1718007944460000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDzv72MzoYDFQAAAAAdAAAAABAE")
+      }
     </style>
   </head>
-  <body>
-    <!-- 
-        <div id="Topbar" class="top-0 select-none sticky flex-1 flex flex-col">
-            <nav class="flex justify-betwee w-6 h-6 my-3 ml-4 cursor-pointer">
-              <ul class="flex items-center">
-                <a href="/auth/login.html">
-                  <img src="../assets/back-icon.svg" alt="" />
-                </a>
-              </ul>
-              <ul class="flex items-center">
-                <li>
-                  <p class="lg:pl-0 text-black font-medium text-[17px]">필터</p>
-                </li>
-              </ul>
-              <div class="w-[24px]"></div>
-            </nav>
-          </div> -->
-
+  <body class="min-h-screen flex flex-col">
     <!-- 타이틀바 -->
     <div
       id="Topbar"
-      class="z-30 bg-transparent top-0 select-none sticky flex-1 flex flex-col"
+      class="z-30 bg-transparent top-0 select-none sticky flex flex-col"
     >
       <nav class="h-[48px] flex justify-between bg-white px-[16px]">
         <ul class="flex items-center">
@@ -67,5 +64,64 @@
       <p class="font-bold text-xl">다비치 안경</p>
     </div>
 
+    <div
+      class="flex flex-col justify-center items-center mt-12 gap-4 pb-8 border-b border-[#f4f4f4]"
+    >
+      <p class="text-[16px] font-medium">이용은 어떠셨나요?</p>
+      <div class="flex flex-col justify-center items-center">
+        <ul class="flex cursor-pointer">
+          <li id="review-1" class="w-12 h-12">
+            <img src="../assets/star-gray.svg" />
+          </li>
+          <li id="button-review-2" class="w-12 h-12">
+            <img src="../assets/star-gray.svg" />
+          </li>
+          <li id="button-review-3" class="w-12 h-12">
+            <img src="../assets/star-gray.svg" />
+          </li>
+          <li id="button-review-4" class="w-12 h-12">
+            <img src="../assets/star-gray.svg" />
+          </li>
+          <li id="button-review-5" class="w-12 h-12">
+            <img src="../assets/star-gray.svg" />
+          </li>
+        </ul>
+        <p class="text-[14px] text-[#999999] font-normal">
+          별점을 선택해주세요.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col mx-4 gap-4 mt-6">
+      <p class="font-medium text-base">내용 입력</p>
+      <textarea
+        type="text"
+        placeholder="최소 10자 이상 입력해주세요"
+        rows="4"
+        class="p-2.5 resize-none border border-[#e6e6e7] rounded-[4px] placeholder:text-[15px] w-full h-[175px] focus:bg-gray-50 focus:border-gray-300 focus:ring-gray-300"
+      ></textarea>
+    </div>
+
+    <div class="mt-2 mx-4 flex flex-col gap-2 justify-start items-start">
+      <p class="text-[#bababa] text-[15px] font-normal">
+        *&nbsp;안경점과 무관한 내용, 악의적이거나 부적절한 내용일 시 별도의 통보
+        없이 삭제 및 제재될 수 있습니다.
+      </p>
+      <p class="text-[#bababa] text-[15px] font-normal">
+        *&nbsp;전화번호, 이메일, 주소, 계좌번호 등 개인정보가 노출되지 않도록
+        주의하세요.
+      </p>
+    </div>
+
+    <div class="flex justify-center mt-auto mb-2">
+      <button
+        id="nextBtn"
+        type="submit"
+        class="w-full mx-4 p-4 rounded-md text-[#FFFFFF] text-[15px] disabled"
+      >
+        후기 등록
+      </button>
+    </div>
   </body>
+  <script src="../js/review-write.js"></script>
 </html>
